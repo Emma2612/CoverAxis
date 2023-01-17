@@ -21,11 +21,7 @@ $validator->field('email')->isEmail();
 $validator->field('message')->maxLength(6000);
 
 
-<<<<<<< HEAD
 $pp->sendEmailTo('emma@zapproach.com'); // ← Your email here
-=======
-$pp->sendEmailTo('trainee2@zapproach.com'); // ← Your email here
->>>>>>> 5f117149a21fa710ec182b7ace6231e30106feb3
 
 echo $pp->process($_POST);
 

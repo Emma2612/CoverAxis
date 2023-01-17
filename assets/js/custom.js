@@ -64,14 +64,10 @@ function contactValidator() {
           $.ajax({
             type: "POST",
             url: "contact.php",
-<<<<<<< HEAD
             data: $('#contact-form').serialize(),
             headers: {
               'Access-Control-Allow-Origin': '*'
            },
-=======
-            data: $(this).serialize(),
->>>>>>> 5f117149a21fa710ec182b7ace6231e30106feb3
             success: function (t) {
               var n = "alert-" + t.type,
                 a = t.message,
@@ -85,17 +81,11 @@ function contactValidator() {
                 setTimeout(function () {
                   e.find(".messages").html("");
                 }, 3e3);
-<<<<<<< HEAD
                 alert('MESSAGE SENT SUCCESSFULLY!');
             },
             error: function (e) {
               console.log(e);
               alert('ERROR OCCURRED :(');
-=======
-            },
-            error: function (e) {
-              console.log(e);
->>>>>>> 5f117149a21fa710ec182b7ace6231e30106feb3
             },
           }),
           !1
