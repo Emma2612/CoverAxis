@@ -2966,6 +2966,11 @@ input[type="submit"]:hover::before {
   transition: color 0.2s linear;
 }
 
+@media only screen and (max-width:425px){
+  .link-custom a span{
+    font-size:10px;
+  }
+}
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
@@ -5187,6 +5192,12 @@ body.nav-active .dsn-nav-bar .icon-m .menu-icon__line {
   overflow: hidden;
 }
 
+@media only screen and (max-width:425px){
+  .next-project{
+    height:40vh;
+  }
+}
+
 .next-project + footer {
   position: absolute;
   width: 100%;
@@ -5258,6 +5269,12 @@ body.nav-active .dsn-nav-bar .icon-m .menu-icon__line {
   opacity: 0;
 }
 
+@media only screen and (max-width:425px){
+  .next-project .project-title{
+    justify-content: flex-end;
+  }
+}
+
 .next-project .project-title .title-text-header {
   position: relative;
   display: -webkit-box;
@@ -5306,13 +5323,24 @@ body.nav-active .dsn-nav-bar .icon-m .menu-icon__line {
   }
 }
 
+@media only screen and (max-width: 425px) {
+  .next-project
+    .project-title
+    .title-text-header
+    .title-text-header-inner
+    span {
+    font-size: 28px;
+    margin:10px 0;
+  }
+}
 @media only screen and (max-width: 400px) {
   .next-project
     .project-title
     .title-text-header
     .title-text-header-inner
     span {
-    font-size: 38px;
+    font-size: 25px;
+    margin:10px 0;
   }
 }
 
@@ -7309,12 +7337,12 @@ body.nav-active .dsn-nav-bar .icon-m .menu-icon__line {
 
 @media only screen and (max-width: 767px) {
   .our-services-2 .col-md-4 .services-item {
-    background: #090909;
+    /* background: #090909; */
     -webkit-box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.3);
     box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.3);
   }
   .v-light .our-services-2 .col-md-4 .services-item {
-    background: #f9f9f9;
+    /* background: #f9f9f9; */
     -webkit-box-shadow: 15px 15px 30px rgba(225, 225, 225, 0.46);
     box-shadow: 15px 15px 30px rgba(225, 225, 225, 0.46);
   }
@@ -7392,9 +7420,10 @@ body.nav-active .dsn-nav-bar .icon-m .menu-icon__line {
 .our-services-2 .services-item .services-header h3,
 h3 {
   letter-spacing: 2.5px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -11518,6 +11547,11 @@ h3 {
   overflow: hidden;
   /*  Responsive */
 }
+@media only screen and (max-width:425px){
+  .dsn-slider{
+    height:50vh;
+  }
+}
 
 .v-light .dsn-slider {
   background-color: #090909;
@@ -15467,7 +15501,7 @@ footer .copyright-social ul li:last-child {
     .slide-content-inner
     .title-text-header
     .title-text-header-inner {
-    font-size: 40px;
+    font-size: 35px;
   }
 }
 
@@ -15765,6 +15799,15 @@ footer .copyright-social ul li:last-child {
   background: #bebebe;
 }
 
+@media only screen and (max-width:425px){
+  .contact-subtitle{
+    padding-left: 60px;
+  }
+  .contact-subtitle:after{
+    width:40px;
+  }
+}
+
 .subtitle-container .contact-subtitle:before,
 .subtitle-container .contact-subtitle:after {
   content: "";
@@ -15790,14 +15833,14 @@ footer .copyright-social ul li:last-child {
 
 /* custom bullet list */
 
-.custom-list {
+.custom-list ,.custom-list-skills {
   list-style:none;
   position: relative;
   padding-left:30px;
-  padding-top:1px;
+  padding-top:10px;
 }
 
-.custom-list:before {
+.custom-list:before,.custom-list-skills:before {
   font-family:FontAwesome;
   position: absolute;
   top:0;
@@ -15805,31 +15848,14 @@ footer .copyright-social ul li:last-child {
   color:#008bd2;
 }
 
-li.custom-list:before {
+li.custom-list:before,li.custom-list-skills:before {
    content:"\f10c";
-   padding-top:5px;
-   font-size:10px;
-}
-
-.custom-list-skills {
-  list-style:none;
-  position: relative;
-  padding-left:30px;
-  padding-top:1px;
-}
-
-.custom-list-skills:before {
-  font-family:FontAwesome;
-  position: absolute;
-  top:0;
-  left: 10px;
-  color:#008bd2;
-}
-
-li.custom-list-skills:before {
-   content:"\f00c";
-   padding-top:5px;
+   padding-top:14px;
    font-size:10px;
 }
 
 /* custom bullet list */
+
+.apply-section p a{
+  color:#008bd2;
+}
