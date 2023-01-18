@@ -15406,7 +15406,7 @@ footer .copyright-social ul li:last-child {
   width: 100%;
 }
 
-.accordion .container {
+.accordion .container-acc {
   position: relative;
   margin: 10px 10px;
 }
@@ -15445,12 +15445,12 @@ footer .copyright-social ul li:last-child {
   background-color: #e6e6e6;
 }
 
-.accordion .container.active .content {
+.accordion .container-acc.active .content {
   max-height: 1500px;
   transition: max-height 0.8s ease-in;
 }
 
-.accordion .container.active .label::before {
+.accordion .container-acc.active .label::before {
   content: "-";
 }
 
@@ -15859,3 +15859,8 @@ li.custom-list:before,li.custom-list-skills:before {
 .apply-section p a{
   color:#008bd2;
 }
+
+/* .mfp-title{
+  color: red;
+  width:25%;
+} */

@@ -60,15 +60,16 @@ function contactValidator() {
     (e.validator(),
     e.on("submit", function (t) {
       if (!t.isDefaultPrevented()) {
+        var form_data=$(this).serialize();
         return (
           $.ajax({
             type: "POST",
-            url: "contact.php",
-            data: $('#contact-form').serialize(),
-            headers: {
-              'Access-Control-Allow-Origin': '*'
-           },
+            url: "http://localhost/coveraxis/contact.php",
+            data: form_data,
+            contentType: "application/json",
+            dataType:"json",
             success: function (t) {
+              /*
               var n = "alert-" + t.type,
                 a = t.message,
                 i =
@@ -82,10 +83,12 @@ function contactValidator() {
                   e.find(".messages").html("");
                 }, 3e3);
                 alert('MESSAGE SENT SUCCESSFULLY!');
+                */
             },
-            error: function (e) {
-              console.log(e);
+            error: function (e, a, c) {
+              console.log(e, a, c);
               alert('ERROR OCCURRED :(');
+              
             },
           }),
           !1
@@ -689,6 +692,9 @@ function initMap() {
               e("html").css({ margin: 0 });
             },
             close: function () {},
+          },
+          image:{
+            titleSrc:'title'
           },
         });
       })(),
