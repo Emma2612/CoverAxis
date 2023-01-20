@@ -59,43 +59,39 @@ function contactValidator() {
   e < 1 ||
     (e.validator(),
     e.on("submit", function (t) {
-      if (!t.isDefaultPrevented()) {
-        var form_data=$(this).serialize();
-        return (
-          $.ajax({
-            type: "POST",
-            url: "http://localhost/coveraxis/contact.php",
-            data: form_data,
-            contentType: "application/json",
-            dataType:"json",
-            success: function (t) {
-              /*
-              var n = "alert-" + t.type,
-                a = t.message,
-                i =
-                  '<div class="alert ' +
-                  n +
-                  ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-                  a +
-                  "</div>";
-              n && a && (e.find(".messages").html(i), e[0].reset()),
-                setTimeout(function () {
-                  e.find(".messages").html("");
-                }, 3e3);
-                alert('MESSAGE SENT SUCCESSFULLY!');
-                */
-            },
-            error: function (e, a, c) {
-              console.log(e, a, c);
-              alert('ERROR OCCURRED :(');
-              
-            },
-          }),
-          !1
-        );
-      }
+      t.preventDefault();
+      var form_data=$(this).serialize();
+
+      $.ajax({
+        type: "POST",
+        url: "contact.php",
+        data:form_data ,
+        contentType: "application/x-www-form-urlencoded",
+        async: false,
+        success: function () {
+          alert(form_data);
+        },
+        error: function (e, a, c) {
+          console.log(e, a, c);
+          alert('ERROR');
+        },
+      });
     }));
 }
+
+
+function arrayToObject(serializedArray) {
+  var jsonObject = {};
+  $.each(serializedArray, function (k, i) {
+    if (i.value == "on") {
+      jsonObject[i.name] = true;
+    } else {
+      jsonObject[i.name] = i.value;
+    }
+  });
+  return jsonObject;
+}
+
 function initMap() {
   var e = document.getElementById("map"),
     t = document.getElementById("map_api");
@@ -693,8 +689,8 @@ function initMap() {
             },
             close: function () {},
           },
-          image:{
-            titleSrc:'title'
+          image: {
+            titleSrc: "title",
           },
         });
       })(),
@@ -1003,7 +999,7 @@ function initMap() {
       },
       start: function () {
         if (
-          ( dsnGrid.scrollTop(0, 1),
+          (dsnGrid.scrollTop(0, 1),
           e(".scroll-down").on("click", function (t) {
             t.preventDefault();
             let n = i;
@@ -1013,10 +1009,10 @@ function initMap() {
                 ease: Expo.easeInOut,
               });
           }),
-        //   function only caters for scroll down but not scroll up nor close menu upon clicking anchor tag
+          //   function only caters for scroll down but not scroll up nor close menu upon clicking anchor tag
           e(".scroll-down-nav").on("click", function (t) {
             var target = t.target,
-            id = target.getAttribute("href");
+              id = target.getAttribute("href");
             t.preventDefault();
 
             let n = i;
