@@ -6319,13 +6319,14 @@ body.nav-active .dsn-nav-bar .icon-m .menu-icon__line {
 }
 
 .v-light .box-gallery-vertical .vertical-title::before {
-  background-color: #000;
+  background-color: #bebebe;
 }
 
 .box-gallery-vertical .vertical-title h2 {
   font-size: 42px;
   line-height: 1.33;
   margin-bottom: 30px;
+  /* color:#008bd2; */
 }
 
 .box-gallery-vertical .box-info {
@@ -6336,6 +6337,7 @@ body.nav-active .dsn-nav-bar .icon-m .menu-icon__line {
   font-family: "Nunito", sans-serif;
   margin-bottom: 30px;
   line-height: 1.6;
+  color:#0054a3;
 }
 
 .box-gallery-vertical .back_stage__subtitle {
@@ -10872,7 +10874,7 @@ h3 {
 .headefr-fexid {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 40vh;
   overflow: hidden;
   background-color: #000;
 }
@@ -15348,7 +15350,7 @@ footer .copyright-social ul li:last-child {
 
 /*# sourceMappingURL=style.css.map */
 
-#services,
+
 #contact {
   background-image: url("../img/new-pattern.png");
   background-repeat: repeat;
@@ -15864,3 +15866,39 @@ li.custom-list:before,li.custom-list-skills:before {
   color: red;
   width:25%;
 } */
+
+#pageMessages {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 30%;
+}
+
+.alert {
+  position: relative;
+}
+
+.alert .close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1em;
+}
+
+.alert .fa {
+  margin-right:.3em;
+}
+
+#numbered-list {
+  list-style: auto!important;
+  padding-bottom: 10px;
+}
+
+#alpha-list{
+  list-style: upper-alpha!important;
+  padding-bottom: 10px;
+}
+
+.pr-50{
+  padding-left: 50px!important;
+}
