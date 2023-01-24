@@ -15874,21 +15874,6 @@ li.custom-list:before,li.custom-list-skills:before {
   width: 30%;
 }
 
-.alert {
-  position: relative;
-}
-
-.alert .close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 1em;
-}
-
-.alert .fa {
-  margin-right:.3em;
-}
-
 #numbered-list {
   list-style: auto!important;
   padding-bottom: 10px;
@@ -15901,4 +15886,28 @@ li.custom-list:before,li.custom-list-skills:before {
 
 .pr-50{
   padding-left: 50px!important;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-success{
+  color:#155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  display:none;
+}
+
+.show{
+  display: block!important;
 }

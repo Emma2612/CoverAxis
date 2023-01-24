@@ -2,17 +2,11 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-$myCompanyName = "Cover Axis";
-$myCompanyEmail = "uat@zsolu.com";
-$myCompanyEmailPassword = "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";
-
-$myPersonalEmail = "emma@zapproach.com";
-
 require './phpmailer/src/Exception.php';
 require './phpmailer/src/PHPMailer.php';
 require './phpmailer/src/SMTP.php';
 
-if(isset($_POST)) {
+if(isset($_POST['submit'])) {
 
 	$mail = new PHPMailer(true);
 
@@ -47,11 +41,7 @@ if(isset($_POST)) {
 	$mail->isHTML(true);
 	$mail->Subject = 'New Contact Enquiry From ' . $comp_name;
 	$mail->MsgHTML($message);
-	// $mail->Body = "Company Name : ".$comp_name. "
-	// 				<br>Phone Number: ".$phone. "
-	// 				<br>Address: ".$address. "
-	// 				<br>E-mail: ".$form_email. "				
-	// 				<br>Message: ".$form_message ;
+	// $mail->body="TEST MESSAGE";
 
 	try {
 		$mail->send();

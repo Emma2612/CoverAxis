@@ -61,19 +61,18 @@ function contactValidator() {
     e.on("submit", function (t) {
       t.preventDefault();
       var form_data=$(this).serialize();
-
+      console.log(form_data);
       $.ajax({
         type: "POST",
         url: "contact.php",
         data:form_data ,
         contentType: "application/x-www-form-urlencoded",
         async: false,
-        success: function () {
-          alert(form_data);
+        success: function () { 
+          $('.alert-success').addClass('show'); //success for passing data to contact.php 
         },
-        error: function (e, a, c) {
-          console.log(e, a, c);
-          alert('ERROR');
+        error: function () {
+          $('.alert-danger').addClass('show');
         },
       });
     }));
