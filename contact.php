@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -6,19 +7,7 @@ require './phpmailer/src/Exception.php';
 require './phpmailer/src/PHPMailer.php';
 require './phpmailer/src/SMTP.php';
 
-if(isset($_POST['submit'])) {
-
-	$mail = new PHPMailer(true);
-
-	$mail->SMTPDebug = 2;
-
-	$mail->isSMTP();
-	$mail->Host = 'smtp.sendgrid.net';
-	$mail->SMTPAuth = true;
-	$mail->Username = "apikey";
-	$mail->Password = "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";
-	$mail->SMTPSecure = 'ssl';
-	$mail->Port = 465;
+if(isset($_POST)) {
 
 	// getting all data sent from ajax
 	$comp_name=$_POST['comp_name'];
@@ -26,6 +15,27 @@ if(isset($_POST['submit'])) {
 	$address=$_POST['address'];
 	$form_email=$_POST['form_email'];
 	$form_message=$_POST['form_message'];
+
+	// Validate the form fields
+	if (empty($comp_name) || empty($phone) || empty($address) || empty($form_email) || empty($form_message)) {
+	    echo 'Error: Please fill out all required fields!';
+	    exit;
+	}
+	
+	if (!filter_var($form_email, FILTER_VALIDATE_EMAIL)) {
+	    echo 'Error: Invalid email address!';
+	    exit;
+	}
+	
+	$mail = new PHPMailer(true);
+
+	$mail->isSMTP();
+	$mail->Host = 'smtp.sendgrid.net';
+	$mail->SMTPAuth = true;
+	$mail->Username = "apikey";
+	$mail->Password = "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";
+	$mail->SMTPSecure = 'ssl';
+	$mail->Port = 465;
 
 	$email_template='contact_email.html';
 	$message = file_get_contents($email_template);
@@ -35,21 +45,24 @@ if(isset($_POST['submit'])) {
 	$message = str_replace('%form_email%', $form_email, $message);
 	$message = str_replace('%form_message%', $form_message, $message);
 
-	$mail->setFrom("uat@zsolu.com","Cover Axis" );
-	$mail->addAddress("emma@zapproach.com"); //switch to support@coveraxis.com
-
-	$mail->isHTML(true);
+	$mail->setfrom("shaynish@netcompartners.com","Cover Axis" );
+	$mail->addaddress("emma@zapproach.com"); 
+    $mail->isHTML(true);
 	$mail->Subject = 'New Contact Enquiry From ' . $comp_name;
+
 	$mail->MsgHTML($message);
 	// $mail->body="TEST MESSAGE";
 
 	try {
 		$mail->send();
-		echo 'Your message was sent successfully!';
+		$success = true;
+		echo json_encode(['status' => 'success']);
 	} catch (Exception $e) {
-		echo "Your message could not be sent! PHPMailer Error: {$mail->ErrorInfo}";
+		$success = false;
+		echo json_encode(['status' => 'error']);
 	}
 	
-}
+};
 
 ?>
+   

@@ -57,28 +57,40 @@ function slick_client(e) {
 function contactValidator() {
   var e = $("#contact-form");
   e < 1 ||
-    (e.validator(),
-    e.on("submit", function (t) {
-      t.preventDefault();
+    (e.validator().on("submit", function (t) {
       var form_data=$(this).serialize();
-      console.log(form_data);
+      t.preventDefault();
+
       $.ajax({
         type: "POST",
         url: "contact.php",
         data:form_data ,
         contentType: "application/x-www-form-urlencoded",
         async: false,
-        success: function () { 
-          $('.alert-success').addClass('show'); //success for passing data to contact.php 
+        success: function(response) {
+          if (response.status === 'success') {
+            $(".alert-danger").removeClass('show');
+            $(".alert-success").addClass('show');        
+          } else {
+            $(".alert-success").removeClass('show');
+            $(".alert-danger").addClass('show');
+          }
         },
-        error: function () {
-          $('.alert-danger').addClass('show');
-        },
+        error: function(error) {
+          $(".alert-success").removeClass('show');
+          $(".alert-danger").addClass('show');
+        }
       });
     }));
 }
 
+function showSuccessMsg(){
+  $('.alert-success').addClass('show'); 
+}
 
+function showErrorMsg(){
+  $('.alert-danger').addClass('show'); 
+}
 function arrayToObject(serializedArray) {
   var jsonObject = {};
   $.each(serializedArray, function (k, i) {
@@ -908,8 +920,8 @@ function initMap() {
           },
         };
       })().run(),
-      e("a.vid").YouTubePopUp(),
-      contactValidator();
+      e("a.vid").YouTubePopUp();
+      // contactValidator()
   }
   function n() {
     i.off("scroll");

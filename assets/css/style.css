@@ -15911,3 +15911,26 @@ li.custom-list:before,li.custom-list-skills:before {
 .show{
   display: block!important;
 }
+/* .mfp-title{
+color:red!important;
+}
+
+
+
+.mfp-title:before {
+  content: '';
+  background-color: #000;
+  opacity: 0.9;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1;
+}
+
+.mfp-title {
+  position: absolute;
+  padding: 36px;
+  bottom: 0;
+} */

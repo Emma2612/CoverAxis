@@ -1553,9 +1553,7 @@
                     <form
                       id="contact-form"
                       class="form"
-                      data-toggle="validator"
-                      method="post"
-                      
+                      data-toggle="validator"                      
                     >
                       <div class="messages"></div>
                       <div class="input__wrap controls">
@@ -1642,7 +1640,8 @@
                           <i class="fas fa-times"></i> &nbsp;
                           <strong>Error!</strong> Something went wrong. Try again.
                         </div>
-                        <div class="image-zoom" data-dsn="parallax">
+                        
+                        <div class="image-zoom" >
                           <input id="btn-submit" name="submit" type="submit" value="submit"></input>
                         </div>
                       </div>
@@ -1728,6 +1727,19 @@
         }
       });
     </script>
+
+    <script>
+      $(document).ready(function(){
+  var status = $("#alert-message").data("status");
+  if(status == "success"){
+    $('.alert-success').addClass('show'); 
+  }
+  if(status=="error"){
+    $('.alert-danger').addClass('show'); 
+  }
+});
+    </script>
+
   </body>
 
   <!-- Mirrored from theme.dsngrid.com/droow-l/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Aug 2022 04:34:14 GMT -->
