@@ -1,5 +1,11 @@
 $(function(){
-  // Нажатие на кнопку меню //
+  $("a.scrollLink").click(function(event) {
+    event.preventDefault();
+    $("html, body").animate({
+        scrollTop: $($(this).attr("href")).offset().top
+      }, 500);
+  });
+  
   $('.hamburger').click(function(){
     $(this).toggleClass('is-active');
     $('.menu').toggleClass('on');
