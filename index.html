@@ -59,7 +59,7 @@
   <body
     data-spy="scroll"
     data-target="main-navigation"
-    class="v-light hamburger-menu dsn-effect-scroll dsn-ajax"
+    class="v-light hamburger-menu dsn-ajax"
     data-dsn-mousemove="true"
   >
     <div data-dsn-temp="light"></div>
@@ -92,22 +92,19 @@
           <nav class="accent-menu main-navigation">
             <ul class="extend-container">
               <li>
-                <a class="scroll-down-nav" href="#home">Home</a>
+                <a class="scroll-down-nav" data-scroll href="#home">Home</a>
               </li>
               <li>
-                <a id="about-link" href="#about">About</a>
+                <a class="scroll-down-nav" data-scroll id="about-link" href="#about">About</a>
               </li>
               <li>
-                <a class="scroll-down-nav" href="#services">Services</a>
-              </li>
-              <!-- <li>
-                <a class="scroll-down-nav" href="#media">Media</a>
-              </li> -->
-              <li>
-                <a class="scroll-down-nav" href="#career">Career</a>
+                <a class="scroll-down-nav" data-scroll href="#services">Services</a>
               </li>
               <li>
-                <a class="scroll-down-nav" href="#contact">Contact</a>
+                <a class="scroll-down-nav" data-scroll href="#career">Career</a>
+              </li>
+              <li>
+                <a class="scroll-down-nav" data-scroll href="#contact">Contact</a>
               </li>
             </ul>
           </nav>
@@ -122,7 +119,7 @@
             </a>
           </div>
 
-          <div class="menu-icon" data-dsn="parallax" data-dsn-move="5">
+          <!-- <div class="menu-icon" data-dsn="parallax" data-dsn-move="5">
             <div class="icon-m">
               <i class="menu-icon-close fas fa-times"></i>
               <span class="menu-icon__line menu-icon__line-left"></span>
@@ -135,22 +132,27 @@
               <div class="text-open">Open</div>
               <div class="text-close">Close</div>
             </div>
+          </div> -->
+
+          <div class="hamburger"> 
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+            <div class="line line3"></div>
+          </div>
+      
+          <div class="menu">
+            <ul>
+              <li><a href="#home"><span> Home </span></a></li>
+              <li><a href="#about"><span> About </span></a></li>
+              <li><a href="#services"><span> Services </span></a></li>
+              <li><a href="#career"><span> Career </span></a></li>
+              <li><a href="#contact"><span> Contact</span></a></li>
+            </ul>
           </div>
 
           <div class="nav">
             <div class="inner">
               <div class="nav__content"></div>
-            </div>
-          </div>
-          <div class="nav-content">
-            <div class="inner-content">
-              <address class="v-middle">
-                <span
-                  >CoverAxis is an independent insurance brokerage and risk
-                  management firm, providing employee benefits, commercial
-                  insurance and personal insurance solutions.</span
-                >
-              </address>
             </div>
           </div>
         </div>
@@ -502,7 +504,7 @@
                       </div>
                     </a>
                   </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="col-lg-4 col-md-6 col-sm-12 mt-3 mt-lg-0">
                     <a
                       class="link-pop"
                       href="assets/img/Our Clients.jpg"
@@ -1464,7 +1466,7 @@
             </div>
           </section>
           <!-- Contact Section -->
-          <div class="next-project" data-dsn-footer="project">
+          <div class="next-project" data-dsn-footer="project" id="contact">
             <div id="dsn-next-parallax-img" class="bg">
               <div
                 class="bg-image cover-bg"
@@ -1494,7 +1496,7 @@
               </a>
             </div>
           </div>
-          <section class="our-services section-margin" id="contact">
+          <section class="our-services section-margin">
             <div class="container">
               <!-- <div class="one-title" data-dsn-animate="up">
                 <div class="title-sub-container">
