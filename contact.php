@@ -30,28 +30,32 @@ if(isset($_POST)) {
 	$mail = new PHPMailer(true);
 
 	$mail->isSMTP();
-	$mail->Host = 'smtp.sendgrid.net';
+	$mail->Host = 'mail.smtp2go.com';
 	$mail->SMTPAuth = true;
-	$mail->Username = "apikey";
-	$mail->Password = "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";
-	$mail->SMTPSecure = 'ssl';
-	$mail->Port = 465;
+	$mail->Username = "donotreply@coveraxis.com";
+	$mail->Password = "kWTVPlPQZIm5hady";
+	$mail->SMTPSecure = 'tls';
+	$mail->Port = 2525;
 
-	$email_template='contact_email.html';
-	$message = file_get_contents($email_template);
-	$message = str_replace('%comp_name%', $comp_name, $message);
-	$message = str_replace('%phone%', $phone, $message);
-	$message = str_replace('%address%', $address, $message);
-	$message = str_replace('%form_email%', $form_email, $message);
-	$message = str_replace('%form_message%', $form_message, $message);
+	// $email_template='contact_email.html';
+	// $message = file_get_contents($email_template);
+	// $message = str_replace('%comp_name%', $comp_name, $message);
+	// $message = str_replace('%phone%', $phone, $message);
+	// $message = str_replace('%address%', $address, $message);
+	// $message = str_replace('%form_email%', $form_email, $message);
+	// $message = str_replace('%form_message%', $form_message, $message);
 
-	$mail->setfrom("shaynish@netcompartners.com","Cover Axis" );
-	$mail->addaddress("emma@zapproach.com"); 
+	$mail->setfrom("donotreply@coveraxis.com","Cover Axis" );
+	$mail->addaddress("support@coveraxis.com"); //change to support@coveraxis.com
     $mail->isHTML(true);
 	$mail->Subject = 'New Contact Enquiry From ' . $comp_name;
 
-	$mail->MsgHTML($message);
-	// $mail->body="TEST MESSAGE";
+	// $mail->MsgHTML($message);
+	$mail->Body=	'<strong>Company Name: </strong>' . $comp_name .'
+					<br><strong>Phone Number: </strong>' .$phone.'
+					<br><strong>Address: </strong>' .$address.'
+					<br><strong>Email Address: </strong>' .$form_email.'
+					<br><strong>Message: </strong>' .$form_message;
 
 	try {
 		$mail->send();
