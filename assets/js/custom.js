@@ -1,3 +1,42 @@
+$(function(){
+  // Нажатие на кнопку меню //
+  $('.hamburger').click(function(){
+    $(this).toggleClass('is-active');
+    $('.menu').toggleClass('on');
+  });
+
+  $('.menu li').click(function(){
+    $('.menu').removeClass('on');
+    $('.hamburger').removeClass('is-active');
+  });
+
+    $(".menu").on("click","a", function (event) {
+      event.preventDefault();
+      var id  = $(this).attr('href'),
+      top = $(id).offset().top;
+      $('body,html').animate({scrollTop: top}, 1000 );
+
+    });
+
+  var tmenu = $('.menu-nav').position().top + $('.menu-nav').data('position');
+  $('.menu-nav').css({
+    'top': tmenu
+  });
+
+  $(window).scroll(function(){
+    
+    var wScroll = $(this).scrollTop();
+    
+    if (wScroll > $('.menu-nav').offset().top) {
+      $('.menu-nav').addClass('js-active');
+    } 
+    if ( tmenu > wScroll) {
+      $('.menu-nav').removeClass('js-active');
+    } 
+
+  });
+});
+
 function SliderProject() {
   $(".slider-project .swiper-container").each(function (e) {
     new Swiper(this, {
@@ -64,7 +103,7 @@ function contactValidator() {
       $.ajax({
         type: "POST",
         url: "contact.php",
-        data:form_data ,
+        data: form_data,
         contentType: "application/x-www-form-urlencoded",
         async: false,
         success: function(response) {
@@ -926,7 +965,6 @@ function initMap() {
   function n() {
     i.off("scroll");
     let t = e(".dsn-nav-bar");
-    t.removeClass("");
     let n = 0;
     var a = e(".wrapper").offset(),
       o = e(".header-single-post .container").offset(),
@@ -936,6 +974,7 @@ function initMap() {
       r.getListener(function (e) {
         n = "scroll" === e.type ? i.scrollTop() : e.offset.y;
         let o = 70;
+        
         void 0 !== a && (o = a.top - 100),
           n > o
             ? l < n
@@ -944,6 +983,7 @@ function initMap() {
             : t.removeClass("nav-bg").removeClass("hide-nave"),
           (l = n);
       });
+      
   }
   function a() {
     const t = window.Scrollbar;
@@ -1018,6 +1058,7 @@ function initMap() {
               TweenLite.to(n, 1.5, {
                 scrollTo: e(".wrapper").offset().top,
                 ease: Expo.easeInOut,
+                
               });
           }),
           //   function only caters for scroll down but not scroll up nor close menu upon clicking anchor tag
@@ -1133,14 +1174,13 @@ function initMap() {
           if (n.length <= 0) return;
           let a = n[0].outerHTML;
           (a = e(a)).attr("class", "nav__list"),
-            a.find("li.custom-drop-down").attr("class", "nav__list-dropdown"),
             a.find("li").addClass("nav__list-item");
           let i = e(".header-top .nav .nav__content");
           void 0 !== i && i.prepend(a),
             t.on("click", function () {
               o.toggleClass("nav-active");
             }),
-            e(".nav__list-item:not(.nav__list-dropdown) ").on(
+            e(".nav__list-item ").on(
               "click",
               function () {
                 o.removeClass("nav-active");
@@ -1158,13 +1198,14 @@ function initMap() {
           var t = i.scrollTop(),
             n = e(".site-header , .header-top"),
             a = e(".page-content").offset(),
-            o = 70;
+            o = 80;
           void 0 !== a && (o = a.top),
             t > o
               ? (n.addClass("header-stickytops"),
                 e(".sections").addClass("body-pt"))
               : (n.removeClass(""), e("body").css("paddingTop", 0));
         });
+
       var n = e(".header-top .header-container .menu-icon .text-menu");
       if (!(n.length <= 0)) {
         var a = n.find(".text-button"),
